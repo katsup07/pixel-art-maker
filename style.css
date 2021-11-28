@@ -1,0 +1,45 @@
+html, body{
+    box-sizing: border-box;
+    justify-content: center;
+    align-content: center;
+    
+}
+#container{
+display: grid;
+background: purple;
+height: 100vh;
+width: 100vw;
+justify-content: center;
+align-content: center;
+}
+#grid > div{
+    display: grid;
+    border: 0.5px solid blue;
+    background: green;
+    
+    font-size: 0.3em;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+#grid{
+    display: grid;
+    height: 65vh;
+    width: 50vw;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    
+ 
+    grid-gap: 0px;
+    justify-content: center;
+    align-content: center;
+    background: orange;
+}
+
+#grid > div:hover{
+ background: rgb(194, 46, 207);
+}
+
+#grid > div:hover:after{
+    background: rgb(194, 46, 207);
+   }
