@@ -1,35 +1,43 @@
+*{
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
 html, body{
     box-sizing: border-box;
     justify-content: center;
     align-content: center;
+    background: rgb(62, 69, 136);
+    margin: 0px;
+   
     
 }
-#grid-container{
+.grid-container{
 display: grid;
-background: darkcyan;
+background: rgb(62, 69, 136);
 height: 100vh;
 width: 100vw;
 justify-content: center;
-align-content: center;
+align-items: center;
 }
 
 
-#grid{
+.grid{
     display: grid;
-    height: 75vh;
-    width: 40vw;
+    height: 80vh;
+    width: 50vw;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
     grid-gap: 0px;
     justify-content: center;
     align-content: center;
-    background: black;
+    background: rgba(0, 0, 0, 0.349);
+    display: grid;
 }
 
-#grid > div{
+.grid > div{
     display: grid;
     border: 0.5px solid blue;
-    background: green;
+    background: rgba(167, 39, 139, 0.911);
     text-align: center;
     justify-content: center;
     align-content: center;
@@ -39,12 +47,18 @@ align-content: center;
  .buttons-container{
     display: flex;
     justify-content: space-between;
-    background: rgba(143, 143, 140, 0.76);
+    background: rgba(0, 0, 0, 0.247);
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.308);
+    
 }
 
 .buttons{
-    font-size: 20px;
+    font-size: 1rem;
     margin-top: 10px;
     margin-bottom: 10px;
-    
-}
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.877);
+    color: rgba(167, 39, 139, 0.911);
+    padding: 3px;
+    }

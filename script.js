@@ -1,38 +1,31 @@
 let gridSize;
 
-function mouseOver(){
-    //let grid = document.getElementById('grid');
-    grid.onmouseover = e => {
-       cellId=e.target.id;
-       console.log(cellId);
-       let cell = document.getElementById(cellId);
+function mouseOver(e){
+       let cell = document.getElementById(e.target.id);// e.target.id === cellId
        cell.style.background="black";
-        }
     }
 
-    function clear(){
+    function clearGrid(){
         console.log(this.id);
         for(i=1; i<=900; i++){
-            let cell = document.getElementById('cell'+i);
-            console.log(cell);
+            let cell = document.getElementById(`cell${i}`);
             if(cell!==null){
              console.log('clear: '+ cell.id);
-             cell.remove();}
-      }
-            
+             cell.remove();
+            }
+      } 
    }
 
-   function erase(){
-    let cell = document.getElementById(cellId);
-       cell.style.background='green';
+   function erase(e){
+    let cell = document.getElementById(e.target.id);//e.target.id === cellId
+       cell.style.background='rgba(167, 39, 139, 0.911)';
    }
 
  function createGrid(e){
    
-   console.log(this.id);
+   console.log(e.currentTarget);
 
      if(this.id==='size16'){
-        //console.log(this.id);
          gridSize= 16;
      }
      else if(this.id==='size64'){
@@ -49,31 +42,28 @@ function mouseOver(){
      else if(this.id==='size900'){
         gridSize=900;
     }
-     else
-     alert("Oops. Something went wrong.");
-     //this.removeEventListener('click',createGrid);
-     clear();
+     clearGrid();
 
      for(i=1; i<=gridSize; i++){
-        let container = document.getElementById('grid');
+        let grid = document.querySelector('.grid');
         let cell = document.createElement('div');
         cell.setAttribute('id','cell'+i)
         //cell.textContent = i;
         //console.log(cell);
-        container.appendChild(cell);
+        grid.appendChild(cell);
         }
 
-        document.getElementById('grid').style.gridTemplateColumns=`repeat(${gridSize/Math.sqrt(gridSize)},1fr)`;
-        document.getElementById('grid').style.gridTemplateRows=`repeat(${gridSize/Math.sqrt(gridSize)},1fr)`;
+        document.querySelector('.grid').style.gridTemplateColumns=`repeat(${gridSize/Math.sqrt(gridSize)},1fr)`;
+        document.querySelector('.grid').style.gridTemplateRows=`repeat(${gridSize/Math.sqrt(gridSize)},1fr)`;
  }
 
-let grid = document.getElementById('grid');
-grid.addEventListener('mouseover',mouseOver);
+let grid = document.querySelector('.grid');
+grid.addEventListener('mouseover', mouseOver);
 grid.addEventListener('click', erase);
 document.getElementById('size16').addEventListener('click', createGrid);
 document.getElementById('size64').addEventListener('click', createGrid);
 document.getElementById('size100').addEventListener('click', createGrid);
 document.getElementById('size400').addEventListener('click', createGrid);
 document.getElementById('size900').addEventListener('click', createGrid);
-document.getElementById('clear').addEventListener('click',clear);
+document.getElementById('clear').addEventListener('click',clearGrid);
 
